@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import "./Articles.css";
 import api from "./utils/API";
 import articlesUtil from "./utils/articles";
+import ArticleSnippet from "./ArticleSnippet";
 
 //Need to render articles based on the page the user is currently on
 //eg.on homepage, Articles need to be rendered in vote order
@@ -28,17 +29,12 @@ class Articles extends Component {
     return (
       <div className="Articles">
         {articles.map((article, i) => {
-          return (
-            <Link key={i} to={`/articles/${article._id}`}>
-              <h2>{article.title}</h2>
-            </Link>
-          );
+          return <ArticleSnippet key={i} article={article} />;
         })}
       </div>
     );
   };
   render() {
-    console.log(this.state);
     return (
       <div className="articles">
         {this.state.articles.length ? this.renderArticles() : null}
