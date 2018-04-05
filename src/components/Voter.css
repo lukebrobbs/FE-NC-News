@@ -1,0 +1,13 @@
+.voter {
+  margin: auto;
+  text-align: center;
+}
+.voter p {
+  margin: 5px;
+}
+.voter img {
+  cursor: pointer;
+}
+.arrow {
+  height: 24px;
+}
