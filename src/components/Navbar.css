@@ -1,0 +1,17 @@
+.top-nav {
+  background-color: rgba(255, 255, 255, 0.699);
+  overflow: hidden;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.top-nav span {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 100%;
+}
+.top-nav span:hover {
+  background-color: #c3002f;
+  color: white;
+}
