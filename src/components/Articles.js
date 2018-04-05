@@ -24,12 +24,26 @@ class Articles extends Component {
       });
     });
   };
+  hideArticle = index => {
+    const newState = [...this.state.articles];
+    newState.splice(index, 1);
+    this.setState({
+      articles: newState
+    });
+  };
   renderArticles = () => {
     const { articles } = this.state;
     return (
       <div className="Articles">
         {articles.map((article, i) => {
-          return <ArticleSnippet key={i} article={article} />;
+          return (
+            <ArticleSnippet
+              key={i}
+              hideArticle={this.hideArticle}
+              article={article}
+              index={i}
+            />
+          );
         })}
       </div>
     );

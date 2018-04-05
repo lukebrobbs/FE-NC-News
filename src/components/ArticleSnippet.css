@@ -1,0 +1,15 @@
+.article-snippet {
+  border-top: 1px grey solid;
+}
+.article-options {
+  font-size: 0.7em;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.article-options p {
+  display: inline;
+  padding-right: 20px;
+}
+.hide:hover {
+  cursor: pointer;
+}
