@@ -16,7 +16,7 @@ const api = {
   getArticles: () => {
     return axios
       .get("https://infinite-garden-99260.herokuapp.com/api/articles")
-      .then(articles => articles.data);
+      .then(articles => articles.data.articles);
   },
   getCommentsforArticle: articleId => {
     return axios
