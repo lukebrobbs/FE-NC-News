@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/Article.css";
-import api from "../utils/API";
+import api from "../utils/api";
 
 //Will render an individual article, depending on the match.params.id
 

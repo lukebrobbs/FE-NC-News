@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import api from "../utils/API";
+import api from "../utils/api";
 import Voter from "./Voter";
 import "../styles/ArticleSnippet.css";
 

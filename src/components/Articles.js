@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../styles/Articles.css";
-import api from "../utils/API";
+import api from "../utils/api";
 import articlesUtil from "../utils/articles";
 import ArticleSnippet from "./ArticleSnippet";
 
