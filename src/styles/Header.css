@@ -1,0 +1,13 @@
+.App-header {
+  background-color: rgba(0, 0, 0, 0.879);
+  height: 12vh;
+}
+.App-header img {
+  display: inline-block;
+}
+.App-header h1 {
+  color: white;
+  font-size: 2em;
+  display: inline-block;
+  margin-left: 60%;
+}

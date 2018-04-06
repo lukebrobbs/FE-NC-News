@@ -3,6 +3,7 @@ import ArticleSnippet from "./ArticleSnippet";
 import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
+import Header from "./Header";
 import "../styles/Comments.css";
 
 class Comments extends Component {
@@ -47,6 +48,7 @@ class Comments extends Component {
     const { comments, article } = this.state;
     return (
       <div className="comments">
+        <Header title="/Comments" />
         {article.length ? (
           <ArticleSnippet article={this.state.article[0]} />
         ) : null}

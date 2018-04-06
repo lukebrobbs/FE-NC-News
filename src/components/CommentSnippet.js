@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "../styles/CommentSnippet.css";
-import api from "../utils/api";
 import Voter from "./Voter";
 
 class CommentSnippet extends Component {
@@ -18,6 +17,7 @@ class CommentSnippet extends Component {
               comment.created_by.username
             } `}</Link>
           </p>
+          <p>{comment.body}</p>
         </div>
       </div>
     );

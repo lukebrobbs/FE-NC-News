@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import api from "../utils/api";
 import Voter from "./Voter";
 import "../styles/ArticleSnippet.css";
+import PropTypes from "prop-types";
 
 class ArticleSnippet extends Component {
   //adding a comment count in back end may save creating a state here
@@ -67,4 +68,9 @@ class ArticleSnippet extends Component {
   }
 }
 
+ArticleSnippet.propTypes = {
+  article: PropTypes.object.isRequired,
+  index: PropTypes.number,
+  hideArticle: PropTypes.func
+};
 export default ArticleSnippet;

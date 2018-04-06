@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
+import "../styles/Header.css";
 
-const Header = () => {
+const Header = ({ title }) => {
+  console.log(title);
   return (
     <div>
       <header className="App-header">
@@ -13,6 +15,7 @@ const Header = () => {
             alt="Northcoders Logo"
           />
         </Link>
+        <h1>{`${title}`}</h1>
       </header>
       <NavBar />
     </div>

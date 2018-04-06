@@ -11,8 +11,6 @@ class HomePage extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
-
           <Route exact path="/" component={HomeBody} />
           <Route
             exact
