@@ -5,11 +5,13 @@ import Voter from "./Voter";
 import "../styles/ArticleSnippet.css";
 
 class ArticleSnippet extends Component {
+  //adding a comment count in back end may save creating a state here
   state = {
     comments: []
   };
   componentDidMount() {
     this._mounted = true;
+
     api.getCommentsforArticle(this.props.article._id).then(comments => {
       if (this._mounted) {
         this.setState({ comments });
@@ -25,7 +27,7 @@ class ArticleSnippet extends Component {
     const { article } = this.props;
     return (
       <div className="article-snippet">
-        <Voter id={article._id} votes={article.votes} />
+        <Voter id={article._id} votes={article.votes} type="article" />
         <div className="article-info">
           <Link to={`/articles/${article._id}`}>
             <h3>{article.title}</h3>
@@ -37,15 +39,19 @@ class ArticleSnippet extends Component {
             } `}</Link>
           </p>
           <div className="article-options">
-            <p className="comment-count">{`${
-              this.state.comments.length
-            } comments`}</p>
-            <p
-              className="hide"
-              onClick={() => this.props.hideArticle(this.props.index)}
-            >
-              hide
-            </p>
+            <Link to={`/articles/${article._id}/comments`}>
+              <p className="comment-count">{`${
+                this.state.comments.length
+              } comments`}</p>
+            </Link>
+            {this.props.hideArticle ? (
+              <p
+                className="hide"
+                onClick={() => this.props.hideArticle(this.props.index)}
+              >
+                hide
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
@@ -53,7 +59,11 @@ class ArticleSnippet extends Component {
   };
 
   render() {
-    return <this.renderArticleSnippet />;
+    return (
+      <div>
+        <this.renderArticleSnippet />
+      </div>
+    );
   }
 }
 

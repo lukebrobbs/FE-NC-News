@@ -4,6 +4,7 @@ import Header from "./Header";
 import HomeBody from "./HomeBody";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Article from "./Article";
+import Comments from "./Comments";
 
 class HomePage extends Component {
   render() {
@@ -13,7 +14,12 @@ class HomePage extends Component {
           <Header />
 
           <Route exact path="/" component={HomeBody} />
-          <Route path={"/articles/:articleId"} component={Article} />
+          <Route
+            exact
+            path={"/articles/:articleId/comments"}
+            component={Comments}
+          />
+          <Route exact path={"/articles/:articleId"} component={Article} />
           <Route path={"/topics/:topicid"} component={Article} />
         </div>
       </Router>
