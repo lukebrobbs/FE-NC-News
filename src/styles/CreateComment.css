@@ -1,0 +1,11 @@
+.comment-input {
+  width: 60%;
+  min-height: 100px;
+  border: 1px solid black;
+  margin: auto;
+}
+.create-comment {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  height: 160px;
+}

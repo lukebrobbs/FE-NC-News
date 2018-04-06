@@ -1,0 +1,13 @@
+.post-button {
+  background-color: #c3002f;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin-left: 45vw;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 12px;
+}

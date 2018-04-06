@@ -3,6 +3,7 @@ import ArticleSnippet from "./ArticleSnippet";
 import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
+import CreateComment from "./CreateComment";
 import Header from "./Header";
 import "../styles/Comments.css";
 
@@ -54,6 +55,7 @@ class Comments extends Component {
         {article.length ? (
           <ArticleSnippet type="full" article={this.state.article[0]} />
         ) : null}
+        <CreateComment />
         {comments.length ? <this.renderComments /> : null}
       </div>
     );
