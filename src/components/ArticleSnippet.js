@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import api from "../utils/api";
 import Voter from "./Voter";
-import Article from "./Article";
+import ArticleBody from "./ArticleBody";
 import "../styles/ArticleSnippet.css";
 import PropTypes from "prop-types";
 
@@ -40,9 +40,11 @@ class ArticleSnippet extends Component {
               article.created_by.username
             } `}</Link>
           </p>
-          {this.props.type === "full" ? <Article body={article.body} /> : null}
+          {this.props.type === "full" ? (
+            <ArticleBody body={article.body} />
+          ) : null}
           <div className="article-options">
-            <Link to={`/articles/${article._id}/comments`}>
+            <Link to={`/articles/${article._id}`}>
               <p className="comment-count">{`${
                 this.state.comments.length
               } comments`}</p>
@@ -73,6 +75,7 @@ class ArticleSnippet extends Component {
 ArticleSnippet.propTypes = {
   article: PropTypes.object.isRequired,
   index: PropTypes.number,
-  hideArticle: PropTypes.func
+  hideArticle: PropTypes.func,
+  type: PropTypes.string
 };
 export default ArticleSnippet;

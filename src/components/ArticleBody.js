@@ -1,12 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "../styles/Article.css";
-import api from "../utils/api";
-import Voter from "./Voter";
+import "../styles/ArticleBody.css";
 
 //Will render an individual article, depending on the match.params.id
 
-class Article extends Component {
+class ArticleBody extends Component {
   render() {
     return (
       <div className="article">
@@ -16,4 +13,4 @@ class Article extends Component {
   }
 }
 
-export default Article;
+export default ArticleBody;
