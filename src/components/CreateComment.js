@@ -18,9 +18,8 @@ class CreateComment extends Component {
     const { articleId } = this.props;
     const commentToPost = { comment: this.state.newComment };
     api.postComment(articleId, commentToPost).then(response => {
-      this.setState({
-        newComment: ""
-      });
+      this.setState({ newComment: "" });
+      this.props.refreshComments();
     });
   };
 

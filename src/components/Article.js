@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ArticleSnippet from "./ArticleSnippet";
 import api from "../utils/api";
-import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
@@ -36,26 +35,19 @@ class Article extends Component {
       });
   };
 
-  renderComments = () => {
-    return (
-      <div className="comment-container">
-        {this.state.comments.map((comment, i) => {
-          return <CommentSnippet key={i} comment={comment} />;
-        })}
-      </div>
-    );
-  };
-
   render() {
     const { comments, article } = this.state;
     return (
       <div className="comments">
         <Header title="/Comments" />
-        {article.length ? (
+        {article.length && (
           <ArticleSnippet type="full" article={this.state.article[0]} />
-        ) : null}
-        <CreateComment articleId={article.length && article[0]._id} />
-        {comments.length ? <Comments comments={this.state.comments} /> : null}
+        )}
+        <CreateComment
+          refreshComments={this.getArticleAndComments}
+          articleId={article.length && article[0]._id}
+        />
+        {comments.length && <Comments comments={this.state.comments} />}
       </div>
     );
   }

@@ -5,7 +5,7 @@ import CommentSnippet from "./CommentSnippet";
 const Comments = ({ comments }) => {
   return (
     <div className="comment-container">
-      {this.state.comments.map((comment, i) => {
+      {comments.map((comment, i) => {
         return <CommentSnippet key={i} comment={comment} />;
       })}
     </div>
