@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Voter.css";
+import "../styles/Voter.css";
 import api from "./utils/API";
 
 class Voter extends Component {
@@ -26,13 +26,15 @@ class Voter extends Component {
         <img
           onClick={this.increaseVotes}
           className="arrow"
-          src={require("./utils/arrow-up.png")}
+          src={require("../images/arrow-up.png")}
+          alt="up vote"
         />
         <p>{this.state.votes}</p>
         <img
           onClick={this.decreaseVotes}
           className="arrow"
-          src={require("./utils/arrow-down.png")}
+          src={require("../images/arrow-down.png")}
+          alt="down vote"
         />
       </div>
     );

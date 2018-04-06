@@ -1,22 +1,29 @@
 import React, { Component } from "react";
-import "./Article.css";
-import Header from "./Header";
-import api from "./utils/API";
+import "../styles/Article.css";
+import api from "../utils/API";
 
 //Will render an individual article, depending on the match.params.id
 
 class Article extends Component {
-  renderArticles = () => {
-    return (
-      <div>
-        {this.state.articles.map((article, i) => {
-          return <p key={i}>hello</p>;
-        })}
-      </div>
-    );
+  state = {
+    article: []
+  };
+  componentDidMount() {
+    return this.getArticle();
+  }
+
+  getArticle = () => {
+    const { match } = this.props;
+    api.getArticleById(match.params.articleId).then(article => {
+      console.log(article);
+      this.setState({
+        article
+      });
+    });
   };
 
   render() {
+    console.log(this.state);
     return (
       <div className="article">
         <p>Article</p>

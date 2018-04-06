@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import "./Articles.css";
-import api from "./utils/API";
-import articlesUtil from "./utils/articles";
+import "../styles/Articles.css";
+import api from "../utils/API";
+import articlesUtil from "../utils/articles";
 import ArticleSnippet from "./ArticleSnippet";
 
 //Need to render articles based on the page the user is currently on
@@ -34,7 +33,7 @@ class Articles extends Component {
   renderArticles = () => {
     const { articles } = this.state;
     return (
-      <div className="Articles">
+      <div className="articles">
         {articles.map((article, i) => {
           return (
             <ArticleSnippet

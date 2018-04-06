@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./HomeBody.css";
+import "../styles/HomeBody.css";
 import Articles from "./Articles";
 import NewArticleButton from "./NewArticleButton";
 

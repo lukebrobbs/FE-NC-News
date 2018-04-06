@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./Navbar.css";
-import api from "./utils/API";
+import "../styles/Navbar.css";
+import api from "../utils/api";
 
 class NavBar extends Component {
   state = {

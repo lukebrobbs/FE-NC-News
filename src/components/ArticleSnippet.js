@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import api from "./utils/API";
+import api from "../utils/API";
 import Voter from "./Voter";
-
-import "./ArticleSnippet.css";
+import "../styles/ArticleSnippet.css";
 
 class ArticleSnippet extends Component {
   state = {

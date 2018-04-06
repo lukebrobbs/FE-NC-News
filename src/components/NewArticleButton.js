@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import "./NewArticleButton.css";
+import React from "react";
+import "../styles/NewArticleButton.css";
 
 const newArticleButton = () => {
   return (
