@@ -55,7 +55,7 @@ class Comments extends Component {
         {article.length ? (
           <ArticleSnippet type="full" article={this.state.article[0]} />
         ) : null}
-        <CreateComment />
+        <CreateComment articleId={article.length && article[0]._id} />
         {comments.length ? <this.renderComments /> : null}
       </div>
     );

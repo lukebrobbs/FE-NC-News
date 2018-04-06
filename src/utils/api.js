@@ -44,7 +44,7 @@ const api = {
     return axios({
       method: "post",
       url: `https://infinite-garden-99260.herokuapp.com/api/articles/${articleId}/comments`,
-      data: { comment }
+      data: comment
     });
   },
   incrementVote: articleId => {

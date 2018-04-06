@@ -1,13 +1,28 @@
 import React, { Component } from "react";
 import "../styles/CreateComment.css";
 import PostButton from "./PostButton";
+import api from "../utils/api";
 
 class CreateComment extends Component {
   state = {
     newComment: ""
   };
 
-  handleChange = () => {};
+  handleChange = event => {
+    this.setState({
+      newComment: event.target.value
+    });
+  };
+
+  postComment = () => {
+    const { articleId } = this.props;
+    const commentToPost = { comment: this.state.newComment };
+    api.postComment(articleId, commentToPost).then(response => {
+      this.setState({
+        newComment: ""
+      });
+    });
+  };
 
   render() {
     return (
@@ -16,8 +31,9 @@ class CreateComment extends Component {
           className="comment-input"
           placeholder="Comment...."
           onChange={this.handleChange}
+          value={this.state.newComment}
         />
-        <PostButton />
+        <PostButton postComment={this.postComment} />
       </div>
     );
   }
