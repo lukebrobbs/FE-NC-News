@@ -6,10 +6,9 @@ import Header from "./Header";
 
 class HomeBody extends Component {
   render() {
-    console.log(this.props);
     return (
       <div className="home-body">
-        <Header title="/Home" />
+        <Header />
         <h1 className="header">Hot articles</h1>
         <NewArticleButton />
         <Articles />

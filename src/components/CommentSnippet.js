@@ -6,7 +6,6 @@ import Voter from "./Voter";
 class CommentSnippet extends Component {
   render() {
     const { comment } = this.props;
-    console.log(comment);
     return (
       <div className="comment-snippet">
         <Voter id={comment._id} votes={comment.votes} type="comment" />

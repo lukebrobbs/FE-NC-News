@@ -4,7 +4,6 @@ import NavBar from "./NavBar";
 import "../styles/Header.css";
 
 const Header = ({ title }) => {
-  console.log(title);
   return (
     <div>
       <header className="App-header">
@@ -15,7 +14,6 @@ const Header = ({ title }) => {
             alt="Northcoders Logo"
           />
         </Link>
-        <h1>{`${title}`}</h1>
       </header>
       <NavBar />
     </div>
