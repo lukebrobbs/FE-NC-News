@@ -1,30 +1,16 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Article.css";
 import api from "../utils/api";
+import Voter from "./Voter";
 
 //Will render an individual article, depending on the match.params.id
 
 class Article extends Component {
-  state = {
-    article: []
-  };
-  componentDidMount() {
-    this.getArticle();
-  }
-
-  getArticle = () => {
-    const { match } = this.props;
-    return api.getArticleById(match.params.articleId).then(article => {
-      this.setState({
-        article
-      });
-    });
-  };
-
   render() {
     return (
       <div className="article">
-        <p>{this.state.article.length ? this.state.article[0].title : null}</p>
+        <p>{this.props.body}</p>
       </div>
     );
   }

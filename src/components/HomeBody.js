@@ -11,7 +11,7 @@ class HomeBody extends Component {
         <Header />
         <h1 className="header">Hot articles</h1>
         <NewArticleButton />
-        <Articles />
+        <Articles articles="all" />
       </div>
     );
   }

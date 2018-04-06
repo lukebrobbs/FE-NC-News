@@ -13,15 +13,33 @@ class Articles extends Component {
     articles: []
   };
   componentDidMount() {
+    this._mounted = true;
     this.getArticles();
   }
+  componentDidUpdate() {
+    this.getArticles();
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
+  }
+
   getArticles = () => {
-    api.getArticles().then(articles => {
-      const sortedArticles = articlesUtil.sortByVotes(articles);
-      this.setState({
-        articles: sortedArticles
+    if (this.props.articles === "all") {
+      api.getArticles().then(articles => {
+        const sortedArticles = articlesUtil.sortByVotes(articles);
+        if (this._mounted) {
+          this.setState({
+            articles: sortedArticles
+          });
+        }
       });
-    });
+    } else {
+      api.getArticlesByTopic(this.props.articles).then(articles => {
+        const sortedArticles = articlesUtil.sortByVotes(articles);
+        if (this._mounted) this.setState({ articles: sortedArticles });
+      });
+    }
   };
   hideArticle = index => {
     const newState = [...this.state.articles];

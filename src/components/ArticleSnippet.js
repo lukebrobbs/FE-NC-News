@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import api from "../utils/api";
 import Voter from "./Voter";
+import Article from "./Article";
 import "../styles/ArticleSnippet.css";
 import PropTypes from "prop-types";
 
@@ -39,6 +40,7 @@ class ArticleSnippet extends Component {
               article.created_by.username
             } `}</Link>
           </p>
+          {this.props.type === "full" ? <Article body={article.body} /> : null}
           <div className="article-options">
             <Link to={`/articles/${article._id}/comments`}>
               <p className="comment-count">{`${

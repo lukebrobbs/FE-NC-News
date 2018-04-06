@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ArticleSnippet from "./ArticleSnippet";
+import Article from "./Article";
 import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
@@ -50,7 +51,7 @@ class Comments extends Component {
       <div className="comments">
         <Header title="/Comments" />
         {article.length ? (
-          <ArticleSnippet article={this.state.article[0]} />
+          <ArticleSnippet type="full" article={this.state.article[0]} />
         ) : null}
         {comments.length ? <this.renderComments /> : null}
       </div>

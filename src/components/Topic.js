@@ -11,7 +11,7 @@ class Topic extends Component {
         <Header />
         <h1 className="header">{`/${match.params.topicid}`}</h1>
         <NewArticleButton />
-        <Articles />
+        <Articles articles={`${match.params.topicid}`} />
       </div>
     );
   }
