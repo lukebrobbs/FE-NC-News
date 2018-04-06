@@ -8,17 +8,13 @@ class Voter extends Component {
   };
 
   decreaseVotes = () => {
-    api.decrementVote(this.props.id).then(votes => {
-      this.setState({
-        votes: votes.data.article.votes
-      });
-    });
+    this.setState({ votes: this.state.votes - 1 });
+    api.decrementVote(this.props.id);
   };
 
   increaseVotes = () => {
-    api.incrementVote(this.props.id).then(votes => {
-      this.setState({ votes: votes.data.article.votes });
-    });
+    this.setState({ votes: this.state.votes + 1 });
+    api.incrementVote(this.props.id);
   };
   render() {
     return (

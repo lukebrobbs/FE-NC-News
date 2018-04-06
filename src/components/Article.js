@@ -14,8 +14,7 @@ class Article extends Component {
 
   getArticle = () => {
     const { match } = this.props;
-    api.getArticleById(match.params.articleId).then(article => {
-      console.log(article);
+    return api.getArticleById(match.params.articleId).then(article => {
       this.setState({
         article
       });
@@ -26,7 +25,7 @@ class Article extends Component {
     console.log(this.state);
     return (
       <div className="article">
-        <p>Article</p>
+        <p>{this.state.article.length ? this.state.article[0].title : null}</p>
       </div>
     );
   }

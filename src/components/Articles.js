@@ -49,7 +49,7 @@ class Articles extends Component {
   };
   render() {
     return (
-      <div className="articles">
+      <div className="articles-wrapper">
         {this.state.articles.length ? this.renderArticles() : null}
       </div>
     );

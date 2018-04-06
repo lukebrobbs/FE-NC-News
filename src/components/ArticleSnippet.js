@@ -13,7 +13,7 @@ class ArticleSnippet extends Component {
   }
 
   getComments = () => {
-    api.getCommentsforArticle(this.props.article._id).then(comments => {
+    return api.getCommentsforArticle(this.props.article._id).then(comments => {
       this.setState({ comments });
     });
   };
