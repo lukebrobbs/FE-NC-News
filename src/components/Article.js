@@ -5,11 +5,11 @@ import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Header from "./Header";
-import "../styles/Comments.css";
+import "../styles/Article.css";
 
 //maybe rename to Article??
 
-class Comments extends Component {
+class Article extends Component {
   state = {
     article: [],
     comments: []
@@ -62,4 +62,4 @@ class Comments extends Component {
   }
 }
 
-export default Comments;
+export default Article;
