@@ -29,9 +29,9 @@ class ArticleSnippet extends Component {
       <div className="article-snippet">
         <Voter id={article._id} votes={article.votes} type="article" />
         <div className="article-info">
-          <Link to={`/articles/${article._id}`}>
-            <h3>{article.title}</h3>
-          </Link>
+          <h3>
+            <Link to={`/articles/${article._id}`}>{article.title}</Link>
+          </h3>
           <p>
             submitted by
             <Link to={`/users/${article.created_by._id}`}>{` ${

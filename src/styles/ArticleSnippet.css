@@ -1,7 +1,11 @@
 .article-snippet {
   display: grid;
-  border-top: 1px grey solid;
+  margin: 30px;
+  border: none;
   grid-template-columns: 1fr 10fr;
+}
+.article-snippet h3 {
+  font-size: 100.1%;
 }
 .article-options {
   font-size: 0.7em;
@@ -14,5 +18,7 @@
 }
 .hide:hover {
   cursor: pointer;
+  transition: font-size 0.1s;
+  font-size: 101%;
   text-decoration: underline;
 }

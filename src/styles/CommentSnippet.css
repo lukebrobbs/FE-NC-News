@@ -1,0 +1,5 @@
+.comment-snippet {
+  display: grid;
+  border-top: 1px grey solid;
+  grid-template-columns: 1fr 10fr;
+}

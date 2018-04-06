@@ -3,6 +3,7 @@ import ArticleSnippet from "./ArticleSnippet";
 import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
+import "../styles/Comments.css";
 
 class Comments extends Component {
   state = {
