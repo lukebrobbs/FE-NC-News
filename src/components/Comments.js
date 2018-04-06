@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ArticleSnippet from "./ArticleSnippet";
 import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
+import commentsUtil from "../utils/comments";
 
 class Comments extends Component {
   state = {
@@ -23,9 +24,10 @@ class Comments extends Component {
         ]);
       })
       .then(([article, comments]) => {
+        const sortedComments = commentsUtil.sortByVotes(comments);
         this.setState({
           article,
-          comments
+          comments: sortedComments
         });
       });
   };

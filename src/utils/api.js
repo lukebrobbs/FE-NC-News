@@ -57,6 +57,16 @@ const api = {
       `https://infinite-garden-99260.herokuapp.com/api/articles/${articleId}?vote=down`
     );
   },
+  incrementCommentVote: commentId => {
+    return axios.put(
+      `https://infinite-garden-99260.herokuapp.com/api/comments/${commentId}?vote=up`
+    );
+  },
+  decrementCommentVote: commentId => {
+    return axios.put(
+      `https://infinite-garden-99260.herokuapp.com/api/comments/${commentId}?vote=down`
+    );
+  },
   deleteComment: commentId => {
     return axios.delete(
       `https://infinite-garden-99260.herokuapp.com/api/comments/${commentId}`

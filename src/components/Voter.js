@@ -9,12 +9,16 @@ class Voter extends Component {
 
   decreaseVotes = () => {
     this.setState({ votes: this.state.votes - 1 });
-    api.decrementVote(this.props.id);
+    this.props.type === "article"
+      ? api.decrementVote(this.props.id)
+      : api.decrementCommentVote(this.props.id);
   };
 
   increaseVotes = () => {
     this.setState({ votes: this.state.votes + 1 });
-    api.incrementVote(this.props.id);
+    this.props.type === "article"
+      ? api.incrementVote(this.props.id)
+      : api.incrementCommentVote(this.props.id);
   };
   render() {
     return (
