@@ -13,7 +13,7 @@ class Articles extends Component {
     articles: []
   };
   componentDidMount() {
-    return this.getArticles();
+    this.getArticles();
   }
   getArticles = () => {
     api.getArticles().then(articles => {

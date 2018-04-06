@@ -9,14 +9,17 @@ class ArticleSnippet extends Component {
     comments: []
   };
   componentDidMount() {
-    return this.getComments();
+    this._mounted = true;
+    api.getCommentsforArticle(this.props.article._id).then(comments => {
+      if (this._mounted) {
+        this.setState({ comments });
+      }
+    });
   }
 
-  getComments = () => {
-    return api.getCommentsforArticle(this.props.article._id).then(comments => {
-      this.setState({ comments });
-    });
-  };
+  componentWillUnmount() {
+    this._mounted = false;
+  }
 
   renderArticleSnippet = () => {
     const { article } = this.props;

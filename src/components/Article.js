@@ -9,7 +9,7 @@ class Article extends Component {
     article: []
   };
   componentDidMount() {
-    return this.getArticle();
+    this.getArticle();
   }
 
   getArticle = () => {
@@ -22,7 +22,6 @@ class Article extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <div className="article">
         <p>{this.state.article.length ? this.state.article[0].title : null}</p>
