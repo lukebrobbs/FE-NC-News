@@ -4,10 +4,9 @@ import api from "../utils/api";
 import CommentSnippet from "./CommentSnippet";
 import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
+import Comments from "./Comments";
 import Header from "./Header";
 import "../styles/Article.css";
-
-//maybe rename to Article??
 
 class Article extends Component {
   state = {
@@ -56,7 +55,7 @@ class Article extends Component {
           <ArticleSnippet type="full" article={this.state.article[0]} />
         ) : null}
         <CreateComment articleId={article.length && article[0]._id} />
-        {comments.length ? <this.renderComments /> : null}
+        {comments.length ? <Comments comments={this.state.comments} /> : null}
       </div>
     );
   }
