@@ -10,4 +10,13 @@
   width: 100px;
   height: 30px;
   border-radius: 12px;
+  transition-duration: 0.1s;
+  transition-property: width;
+}
+
+.post-button:hover {
+  cursor: pointer;
+}
+.post-button:active {
+  width: 95px;
 }
