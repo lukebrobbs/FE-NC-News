@@ -29,7 +29,12 @@ class ArticleSnippet extends Component {
     const { article } = this.props;
     return (
       <div className="article-snippet">
-        <Voter id={article._id} votes={article.votes} type="article" />
+        <Voter
+          id={article._id}
+          votes={article.votes}
+          refreshComments={this.props.refreshComments}
+          type="article"
+        />
         <div className="article-info">
           <h3>
             <Link to={`/articles/${article._id}`}>{article.title}</Link>

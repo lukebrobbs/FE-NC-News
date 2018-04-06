@@ -19,12 +19,4 @@ class HomePage extends Component {
   }
 }
 
-/* <Header>
-<HomePage>
-<Articles>
-<Article>
-<Topics>
-<Topic>
-<User> */
-
 export default HomePage;

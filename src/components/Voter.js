@@ -8,18 +8,32 @@ class Voter extends Component {
     votes: this.props.votes
   };
 
+  componentDidMount() {
+    this.setState({ votes: this.props.votes });
+  }
+
+  refreshAndUpdate = () => {
+    this.props.refreshComments();
+    this.setState({ votes: this.props.votes });
+  };
   decreaseVotes = () => {
-    this.setState({ votes: this.state.votes - 1 });
     this.props.type === "article"
-      ? api.decrementVote(this.props.id)
-      : api.decrementCommentVote(this.props.id);
+      ? api.decrementVote(this.props.id).then(res => {
+          this.refreshAndUpdate();
+        })
+      : api.decrementCommentVote(this.props.id).then(res => {
+          this.refreshAndUpdate();
+        });
   };
 
   increaseVotes = () => {
-    this.setState({ votes: this.state.votes + 1 });
     this.props.type === "article"
-      ? api.incrementVote(this.props.id)
-      : api.incrementCommentVote(this.props.id);
+      ? api.incrementVote(this.props.id).then(res => {
+          this.refreshAndUpdate();
+        })
+      : api.incrementCommentVote(this.props.id).then(res => {
+          this.refreshAndUpdate();
+        });
   };
   render() {
     return (
@@ -45,7 +59,8 @@ class Voter extends Component {
 Voter.propTypes = {
   id: PropTypes.string.isRequired,
   votes: PropTypes.number,
-  type: PropTypes.string
+  type: PropTypes.string,
+  refreshComments: PropTypes.func
 };
 
 export default Voter;

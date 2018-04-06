@@ -10,7 +10,12 @@ class CommentSnippet extends Component {
     const date = moment(comment.created_at, "x").fromNow();
     return (
       <div className="comment-snippet">
-        <Voter id={comment._id} votes={comment.votes} type="comment" />
+        <Voter
+          id={comment._id}
+          votes={comment.votes}
+          refreshComments={this.props.refreshComments}
+          type="comment"
+        />
         <div className="Comment content">
           <p>
             submitted by
