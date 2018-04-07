@@ -4,7 +4,6 @@ import api from "../utils/api";
 import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
-import Header from "./Header";
 import "../styles/Article.css";
 
 class Article extends Component {
@@ -39,7 +38,6 @@ class Article extends Component {
     const { comments, article } = this.state;
     return (
       <div className="comments">
-        <Header />
         {article.length ? (
           <ArticleSnippet
             type="full"

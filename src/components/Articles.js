@@ -11,13 +11,14 @@ class Articles extends Component {
     articles: [],
     articlesToSearch: []
   };
+
   componentDidMount() {
     this._mounted = true;
     this.getArticles();
   }
 
-  componentDidUpdate() {
-    this.getArticles();
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.topics !== this.props.topics) this.getArticles();
   }
 
   componentWillUnmount() {
@@ -48,6 +49,7 @@ class Articles extends Component {
     });
   };
   renderArticles = () => {
+    console.log("Render Articles");
     const { articles, articlesToSearch } = this.state;
     return (
       <div>

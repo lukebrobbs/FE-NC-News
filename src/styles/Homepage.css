@@ -1,5 +1,6 @@
 .home-body {
   background-color: rgb(241, 239, 239);
+  margin-top: -13px;
 }
 .home-body button {
   position: relative;
@@ -8,6 +9,7 @@
 .home-body .header {
   margin-left: 2vw;
   margin-bottom: 0;
+  padding-top: 10px;
   font-size: 1.5em;
 }
 .home-body .sub-header {
