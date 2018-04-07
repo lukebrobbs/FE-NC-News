@@ -9,6 +9,13 @@ const articlesUtil = {
     return articles.filter(
       article => article.topic.title.toLowerCase() === topic.toLowerCase()
     );
+  },
+  searchArticles: (articles, search) => {
+    if (search.length) {
+      return articles.filter(article =>
+        article.title.toLowerCase().includes(search.toLowerCase())
+      );
+    } else return [];
   }
 };
 
