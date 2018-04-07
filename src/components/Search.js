@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ArticleSnippet from "./ArticleSnippet";
 import articlesUtil from "../utils/articles";
+import "../styles/Search.css";
 
 class Search extends Component {
   state = {
@@ -9,8 +10,8 @@ class Search extends Component {
   };
 
   renderArticles = () => {
-    return this.state.results.map(result => {
-      return <ArticleSnippet article={result} />;
+    return this.state.results.map((result, i) => {
+      return <ArticleSnippet key={i} article={result} />;
     });
   };
 
@@ -19,7 +20,6 @@ class Search extends Component {
       this.props.searchItems,
       event.target.value
     );
-    console.log(results);
     this.setState({
       search: event.target.value,
       results

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Header from "./Header";
-import NewArticleButton from "./NewArticleButton";
 import Articles from "./Articles";
 
 class Topic extends Component {
@@ -11,7 +10,6 @@ class Topic extends Component {
         <Header />
         <h1 className="header">{`/${match.params.topicid}`}</h1>
         <h2 className="sub-header"> Hot articles</h2>
-        <NewArticleButton />
         <Articles topics={`${match.params.topicid}`} />
       </div>
     );
