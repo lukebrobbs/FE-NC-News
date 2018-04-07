@@ -43,8 +43,7 @@ class ArticleSnippet extends Component {
             submitted by
             <Link to={`/users/${article.created_by._id}`}>{` ${
               article.created_by.username
-            } `}</Link>{" "}
-            {`${date}`}
+            } `}</Link>
           </p>
           {this.props.type === "full" ? (
             <ArticleBody body={article.body} />
@@ -55,6 +54,7 @@ class ArticleSnippet extends Component {
                 this.state.comments.length
               } comments`}</p>
             </Link>
+            <p>{`${date}`}</p>
             {hideArticle ? (
               <p className="hide" onClick={() => hideArticle(index)}>
                 hide
