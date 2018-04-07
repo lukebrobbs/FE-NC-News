@@ -3,10 +3,12 @@ import "../styles/Articles.css";
 import api from "../utils/api";
 import articlesUtil from "../utils/articles";
 import ArticleSnippet from "./ArticleSnippet";
+import Search from "./Search";
 
 class Articles extends Component {
   state = {
-    articles: []
+    articles: [],
+    articlesToSearch: []
   };
   componentDidMount() {
     this._mounted = true;
@@ -19,14 +21,16 @@ class Articles extends Component {
 
   getArticles = () => {
     api.getArticles().then(articles => {
+      const sortedArticles = articlesUtil.sortByVotes(articles);
       const filteredArticles = articlesUtil.filterByTopic(
-        articles,
+        sortedArticles,
         this.props.topics
       );
-      const sortedArticles = articlesUtil.sortByVotes(filteredArticles);
+
       if (this._mounted) {
         this.setState({
-          articles: sortedArticles
+          articles: filteredArticles,
+          articlesToSearch: sortedArticles
         });
       }
     });
@@ -40,26 +44,31 @@ class Articles extends Component {
     });
   };
   renderArticles = () => {
-    const { articles } = this.state;
+    const { articles, articlesToSearch } = this.state;
     return (
-      <div className="articles">
-        {articles.map((article, i) => {
-          return (
-            <ArticleSnippet
-              key={i}
-              hideArticle={this.hideArticle}
-              article={article}
-              index={i}
-            />
-          );
-        })}
+      <div>
+        <div className="search">
+          <Search searchItems={articlesToSearch} />
+        </div>
+        <div className="articles">
+          {articles.map((article, i) => {
+            return (
+              <ArticleSnippet
+                key={i}
+                hideArticle={this.hideArticle}
+                article={article}
+                index={i}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   };
   render() {
     return (
       <div className="articles-wrapper">
-        {this.state.articles.length && this.renderArticles()}
+        {this.state.articles.length ? this.renderArticles() : null}
       </div>
     );
   }
