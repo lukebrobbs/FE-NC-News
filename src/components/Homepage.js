@@ -1,20 +1,17 @@
 import React, { Component } from "react";
-import "../styles/Homepage.css";
-import HomeBody from "./HomeBody";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Article from "./Article";
-import Topic from "./Topic";
+import "../styles/HomePage.css";
+import Articles from "./Articles";
+import Header from "./Header";
 
 class HomePage extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Route exact path="/" component={HomeBody} />
-          <Route exact path={"/articles/:articleId"} component={Article} />
-          <Route path={"/topics/:topicid"} component={Topic} />
-        </div>
-      </Router>
+      <div className="home-body">
+        <Header />
+        <h1 className="header">/home</h1>
+        <h2 className="sub-header">Hot articles</h2>
+        <Articles topics="all" />
+      </div>
     );
   }
 }

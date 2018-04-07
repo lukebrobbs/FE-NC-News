@@ -40,23 +40,23 @@ class Article extends Component {
     return (
       <div className="comments">
         <Header />
-        {article.length && (
+        {article.length ? (
           <ArticleSnippet
             type="full"
             refreshComments={this.getArticleAndComments}
             article={this.state.article[0]}
           />
-        )}
+        ) : null}
         <CreateComment
           refreshComments={this.getArticleAndComments}
-          articleId={article.length && article[0]._id}
+          articleId={article.length ? article[0]._id : null}
         />
-        {comments.length && (
+        {comments.length ? (
           <Comments
             comments={this.state.comments}
             refreshComments={this.getArticleAndComments}
           />
-        )}
+        ) : null}
       </div>
     );
   }

@@ -1,0 +1,13 @@
+.Logo {
+  height: 10vh;
+  width: auto;
+}
+a {
+  text-decoration: none;
+  color: #c3002f;
+  transition: all 0.5s ease;
+}
+a:hover {
+  color: #a10c2f;
+  text-decoration: underline;
+}

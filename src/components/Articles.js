@@ -27,7 +27,6 @@ class Articles extends Component {
   getArticles = () => {
     api.getArticles().then(articles => {
       const sortedArticles = utils.sort(articles, "votes");
-      console.log(sortedArticles);
       const filteredArticles = articlesUtil.filterByTopic(
         sortedArticles,
         this.props.topics
@@ -50,7 +49,6 @@ class Articles extends Component {
   };
   renderArticles = () => {
     const { articles, articlesToSearch } = this.state;
-    console.log(this.props);
     return (
       <div>
         <div className="search">

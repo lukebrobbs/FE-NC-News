@@ -10,10 +10,10 @@ class NavBar extends Component {
   };
 
   componentDidMount() {
-    return this.getTopics();
+    this.setTopics();
   }
 
-  getTopics = () => {
+  setTopics = () => {
     api.getTopics().then(topics => {
       this.setState({
         topics
@@ -21,7 +21,6 @@ class NavBar extends Component {
     });
   };
   getRandomTopic = () => {
-    const topics = [...this.state.topics];
     const location = window.location.pathname.split("/");
     const currentTopic = location[location.length - 1];
     return sample(
