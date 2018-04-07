@@ -5,6 +5,7 @@ import Voter from "./Voter";
 import ArticleBody from "./ArticleBody";
 import "../styles/ArticleSnippet.css";
 import PropTypes from "prop-types";
+import moment from "moment";
 
 class ArticleSnippet extends Component {
   state = {
@@ -25,6 +26,7 @@ class ArticleSnippet extends Component {
 
   renderArticleSnippet = () => {
     const { article, refreshComments, hideArticle, index } = this.props;
+    const date = moment(article.created_at, "x").fromNow();
     return (
       <div className="article-snippet">
         <Voter
@@ -41,7 +43,8 @@ class ArticleSnippet extends Component {
             submitted by
             <Link to={`/users/${article.created_by._id}`}>{` ${
               article.created_by.username
-            } `}</Link>
+            } `}</Link>{" "}
+            {`${date}`}
           </p>
           {this.props.type === "full" ? (
             <ArticleBody body={article.body} />
