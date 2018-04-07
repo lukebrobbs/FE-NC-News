@@ -3,16 +3,20 @@
   float: right;
 }
 .search-area textarea {
-  width: 200px;
-  margin-left: 10%;
+  width: 250px;
+  margin-left: 5%;
   border: none;
   margin-bottom: 20px;
   text-align: center;
   font-size: 1.2em;
-  height: 20px;
-  padding-top: 5px;
+  height: 25px;
+  padding-top: 6px;
+  padding-bottom: 8px;
 }
 .search-area .article-snippet {
   width: 300px;
   margin: auto;
+}
+.search-area .voter {
+  margin-right: 30px;
 }

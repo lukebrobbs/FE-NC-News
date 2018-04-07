@@ -12,9 +12,15 @@ const articlesUtil = {
   },
   searchArticles: (articles, search) => {
     if (search.length) {
-      return articles.filter(article =>
-        article.title.toLowerCase().includes(search.toLowerCase())
-      );
+      return articles.filter(article => {
+        return (
+          article.title.toLowerCase().includes(search.toLowerCase()) ||
+          article.topic.title.toLowerCase().includes(search.toLowerCase()) ||
+          article.created_by.username
+            .toLowerCase()
+            .includes(search.toLowerCase())
+        );
+      });
     } else return [];
   }
 };

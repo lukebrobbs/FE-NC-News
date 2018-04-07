@@ -1,14 +1,16 @@
 .home-body {
-  background-color: rgb(236, 235, 235);
+  background-color: rgb(241, 239, 239);
 }
 .home-body button {
   position: relative;
   left: 80%;
 }
 .home-body .header {
-  padding-top: 2vh;
   margin-left: 2vw;
+  margin-bottom: 0;
+  font-size: 1.5em;
 }
 .home-body .sub-header {
   margin-left: 4vw;
+  font-size: 1.2em;
 }
