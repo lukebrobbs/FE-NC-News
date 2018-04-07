@@ -15,6 +15,10 @@ class Articles extends Component {
     this.getArticles();
   }
 
+  componentDidUpdate() {
+    this.getArticles();
+  }
+
   componentWillUnmount() {
     this._mounted = false;
   }
