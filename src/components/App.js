@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Article from "./Article";
 import Topic from "./Topic";
 import Header from "./Header";
+import User from "./User";
 
 class App extends Component {
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={HomePage} />
           <Route exact path={"/articles/:articleId"} component={Article} />
-          <Route path={"/topics/:topicid"} component={Topic} />
+          <Route exact path={"/topics/:topicid"} component={Topic} />
+          <Route exact path={"/users/:userid"} component={User} />
         </div>
       </Router>
     );
