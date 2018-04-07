@@ -9,19 +9,18 @@ class Voter extends Component {
   };
 
   decreaseVotes = () => {
+    const { id, type } = this.props;
     this.setState({ votes: this.state.votes - 1 });
-    this.props.type === "article"
-      ? api.decrementVote(this.props.id)
-      : api.decrementCommentVote(this.props.id);
+    type === "article" ? api.decrementVote(id) : api.decrementCommentVote(id);
   };
 
   increaseVotes = () => {
+    const { id, type } = this.props;
     this.setState({ votes: this.state.votes + 1 });
-    this.props.type === "article"
-      ? api.incrementVote(this.props.id)
-      : api.incrementCommentVote(this.props.id);
+    type === "article" ? api.incrementVote(id) : api.incrementCommentVote(id);
   };
   render() {
+    const { votes } = this.state;
     return (
       <div className="voter">
         <img
@@ -30,7 +29,7 @@ class Voter extends Component {
           src={require("../images/arrow-up.png")}
           alt="up vote"
         />
-        <p>{this.state.votes}</p>
+        <p>{votes}</p>
         <img
           onClick={this.decreaseVotes}
           className="arrow"

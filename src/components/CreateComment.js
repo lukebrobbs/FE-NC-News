@@ -15,22 +15,23 @@ class CreateComment extends Component {
   };
 
   postComment = () => {
-    const { articleId } = this.props;
+    const { articleId, refreshComments } = this.props;
     const commentToPost = { comment: this.state.newComment };
     api.postComment(articleId, commentToPost).then(response => {
       this.setState({ newComment: "" });
-      this.props.refreshComments();
+      refreshComments();
     });
   };
 
   render() {
+    const { newComment } = this.state;
     return (
       <div className="create-comment">
         <textarea
           className="comment-input"
           placeholder="Comment...."
           onChange={this.handleChange}
-          value={this.state.newComment}
+          value={newComment}
         />
         <PostButton postComment={this.postComment} />
       </div>

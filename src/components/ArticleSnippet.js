@@ -7,13 +7,11 @@ import "../styles/ArticleSnippet.css";
 import PropTypes from "prop-types";
 
 class ArticleSnippet extends Component {
-  //adding a comment count in back end may save creating a state here
   state = {
     comments: []
   };
   componentDidMount() {
     this._mounted = true;
-
     api.getCommentsforArticle(this.props.article._id).then(comments => {
       if (this._mounted) {
         this.setState({ comments });
@@ -26,13 +24,13 @@ class ArticleSnippet extends Component {
   }
 
   renderArticleSnippet = () => {
-    const { article } = this.props;
+    const { article, refreshComments, hideArticle, index } = this.props;
     return (
       <div className="article-snippet">
         <Voter
           id={article._id}
           votes={article.votes}
-          refreshComments={this.props.refreshComments}
+          refreshComments={refreshComments}
           type="article"
         />
         <div className="article-info">
@@ -54,11 +52,8 @@ class ArticleSnippet extends Component {
                 this.state.comments.length
               } comments`}</p>
             </Link>
-            {this.props.hideArticle ? (
-              <p
-                className="hide"
-                onClick={() => this.props.hideArticle(this.props.index)}
-              >
+            {hideArticle ? (
+              <p className="hide" onClick={() => hideArticle(index)}>
                 hide
               </p>
             ) : null}

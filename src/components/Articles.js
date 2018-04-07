@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/Articles.css";
 import api from "../utils/api";
 import articlesUtil from "../utils/articles";
+import utils from "../utils/utils";
 import ArticleSnippet from "./ArticleSnippet";
 import Search from "./Search";
 
@@ -25,12 +26,12 @@ class Articles extends Component {
 
   getArticles = () => {
     api.getArticles().then(articles => {
-      const sortedArticles = articlesUtil.sortByVotes(articles);
+      const sortedArticles = utils.sort(articles, "votes");
+      console.log(sortedArticles);
       const filteredArticles = articlesUtil.filterByTopic(
         sortedArticles,
         this.props.topics
       );
-
       if (this._mounted) {
         this.setState({
           articles: filteredArticles,

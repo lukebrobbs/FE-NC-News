@@ -48,9 +48,10 @@ class NavBar extends Component {
   };
 
   render() {
+    const { topics } = this.state;
     return (
       <div className="top-nav">
-        {this.state.topics.length ? this.populateNavBar() : null}
+        {topics.length ? this.populateNavBar() : null}
       </div>
     );
   }
