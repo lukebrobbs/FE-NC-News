@@ -9,7 +9,8 @@ class HomeBody extends Component {
     return (
       <div className="home-body">
         <Header />
-        <h1 className="header">Hot articles</h1>
+        <h1 className="header">/home</h1>
+        <h2 className="sub-header">Hot articles</h2>
         <NewArticleButton />
         <Articles articles="all" />
       </div>

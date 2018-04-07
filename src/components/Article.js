@@ -39,7 +39,7 @@ class Article extends Component {
     const { comments, article } = this.state;
     return (
       <div className="comments">
-        <Header title="/Comments" />
+        <Header />
         {article.length && (
           <ArticleSnippet
             type="full"

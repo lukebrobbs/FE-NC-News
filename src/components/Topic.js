@@ -10,6 +10,7 @@ class Topic extends Component {
       <div className="home-body">
         <Header />
         <h1 className="header">{`/${match.params.topicid}`}</h1>
+        <h2 className="sub-header"> Hot articles</h2>
         <NewArticleButton />
         <Articles articles={`${match.params.topicid}`} />
       </div>
