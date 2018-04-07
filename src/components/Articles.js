@@ -49,6 +49,7 @@ class Articles extends Component {
   };
   renderArticles = () => {
     const { articles, articlesToSearch } = this.state;
+    console.log(this.props);
     return (
       <div>
         <div className="search">

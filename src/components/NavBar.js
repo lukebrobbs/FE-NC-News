@@ -31,7 +31,6 @@ class NavBar extends Component {
 
   populateNavBar = () => {
     const { topics } = this.state;
-    console.log(window.location.pathname);
     return (
       <div className="Navitems">
         <Link to={`/topics/${this.getRandomTopic().slug}`}>
