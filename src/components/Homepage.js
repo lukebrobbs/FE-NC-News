@@ -4,7 +4,6 @@ import Articles from "./Articles";
 
 class HomePage extends Component {
   render() {
-    console.log("HomePage render");
     return (
       <div className="home-body">
         <h1 className="header">/home</h1>

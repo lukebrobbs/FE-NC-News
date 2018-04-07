@@ -49,7 +49,6 @@ class Articles extends Component {
     });
   };
   renderArticles = () => {
-    console.log("Render Articles");
     const { articles, articlesToSearch } = this.state;
     return (
       <div>

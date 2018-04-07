@@ -4,8 +4,6 @@ import Articles from "./Articles";
 class Topic extends Component {
   render() {
     const { match } = this.props;
-    console.log("Topic render");
-    console.log(`Topicparams ${match.params.topicid}`);
     return (
       <div className="home-body">
         <h1 className="header">{`/${match.params.topicid}`}</h1>
