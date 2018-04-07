@@ -12,7 +12,7 @@ class HomeBody extends Component {
         <h1 className="header">/home</h1>
         <h2 className="sub-header">Hot articles</h2>
         <NewArticleButton />
-        <Articles articles="all" />
+        <Articles topics="all" />
       </div>
     );
   }

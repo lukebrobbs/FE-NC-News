@@ -12,7 +12,7 @@ class Topic extends Component {
         <h1 className="header">{`/${match.params.topicid}`}</h1>
         <h2 className="sub-header"> Hot articles</h2>
         <NewArticleButton />
-        <Articles articles={`${match.params.topicid}`} />
+        <Articles topics={`${match.params.topicid}`} />
       </div>
     );
   }
