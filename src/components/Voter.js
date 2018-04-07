@@ -8,6 +8,12 @@ class Voter extends Component {
     votes: this.props.votes
   };
 
+  componentDidUpdate(prevProps) {
+    if (this.props.votes !== prevProps.votes) {
+      this.setState({ votes: this.props.votes });
+    }
+  }
+
   decreaseVotes = () => {
     const { id, type } = this.props;
     this.setState({ votes: this.state.votes - 1 });

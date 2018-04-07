@@ -17,7 +17,7 @@ class Articles extends Component {
     this.getArticles();
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.topics !== this.props.topics) this.getArticles();
   }
 
