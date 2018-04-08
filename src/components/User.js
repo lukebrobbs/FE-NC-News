@@ -33,7 +33,6 @@ class User extends Component {
             alt="User avatar"
           />
           <h1 className="username">{`/${user.username}` || null}</h1>
-          <h2 className="sub-header">Articles</h2>
         </div>
         <Articles type="user" filterBy={match.params.userid} />
       </div>
