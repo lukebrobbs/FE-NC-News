@@ -5,6 +5,7 @@ import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
 import "../styles/Article.css";
+import NavBar from "./NavBar";
 
 class Article extends Component {
   state = {
@@ -37,24 +38,28 @@ class Article extends Component {
   render() {
     const { comments, article } = this.state;
     return (
-      <div className="comments">
-        {article.length ? (
-          <ArticleSnippet
-            type="full"
+      <div>
+        <NavBar auth={this.props.auth} />
+        <div className="comments">
+          {article.length ? (
+            <ArticleSnippet
+              type="full"
+              refreshComments={this.getArticleAndComments}
+              article={this.state.article[0]}
+            />
+          ) : null}
+          <CreateComment
+            auth={this.props.auth}
             refreshComments={this.getArticleAndComments}
-            article={this.state.article[0]}
+            articleId={article.length ? article[0]._id : null}
           />
-        ) : null}
-        <CreateComment
-          refreshComments={this.getArticleAndComments}
-          articleId={article.length ? article[0]._id : null}
-        />
-        {comments.length ? (
-          <Comments
-            comments={this.state.comments}
-            refreshComments={this.getArticleAndComments}
-          />
-        ) : null}
+          {comments.length ? (
+            <Comments
+              comments={this.state.comments}
+              refreshComments={this.getArticleAndComments}
+            />
+          ) : null}
+        </div>
       </div>
     );
   }

@@ -38,7 +38,8 @@ class NavBar extends Component {
 
   populateNavBar = () => {
     const { topics } = this.state;
-    // const { isAuthenticated } = this.props.auth;
+    const { isAuthenticated } = this.props.auth;
+    console.log(this.props.auth);
     return (
       <div className="Navitems">
         <header className="App-header">
@@ -60,24 +61,16 @@ class NavBar extends Component {
             </Link>
           );
         })}
-        {/* {!isAuthenticated() && (
-          <Button
-            bsStyle="primary"
-            className="btn-margin"
-            onClick={this.login.bind(this)}
-          >
+        {!isAuthenticated() && (
+          <Button className="login-button" onClick={this.login.bind(this)}>
             Log In
           </Button>
         )}
         {isAuthenticated() && (
-          <Button
-            bsStyle="primary"
-            className="btn-margin"
-            onClick={this.logout.bind(this)}
-          >
+          <Button className="login-button" onClick={this.logout.bind(this)}>
             Log Out
           </Button>
-        )} */}
+        )}
       </div>
     );
   };

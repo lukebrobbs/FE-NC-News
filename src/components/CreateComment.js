@@ -25,15 +25,21 @@ class CreateComment extends Component {
 
   render() {
     const { newComment } = this.state;
+    const { isAuthenticated } = this.props.auth;
     return (
-      <div className="create-comment">
-        <textarea
-          className="comment-input"
-          placeholder="Comment...."
-          onChange={this.handleChange}
-          value={newComment}
-        />
-        <PostButton postComment={this.postComment} />
+      <div>
+        {isAuthenticated() && (
+          <div className="create-comment">
+            <textarea
+              className="comment-input"
+              placeholder="Comment...."
+              onChange={this.handleChange}
+              value={newComment}
+            />
+
+            <PostButton postComment={this.postComment} />
+          </div>
+        )}
       </div>
     );
   }

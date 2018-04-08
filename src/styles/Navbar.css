@@ -29,3 +29,26 @@
   display: inline-block;
   margin-left: 60%;
 }
+.login-button {
+  background-color: #c3002f;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  position: absolute;
+  right: 2%;
+  top: 3%;
+  margin-top: 10px;
+  width: 100px;
+  height: 30px;
+  border-radius: 12px;
+  transition-duration: 0.1s;
+  transition-property: width;
+}
+.login-button:hover {
+  cursor: pointer;
+}
+.login-button:active {
+  width: 95px;
+}
