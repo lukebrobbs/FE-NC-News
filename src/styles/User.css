@@ -1,0 +1,18 @@
+.profile-picture {
+  border-radius: 100%;
+  border: 4px rgb(87, 87, 87) solid;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 30px;
+}
+.profile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 40%;
+}
+.username {
+  font-size: 4em;
+  margin-left: 20px;
+  margin-top: 20%;
+}

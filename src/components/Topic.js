@@ -8,7 +8,7 @@ class Topic extends Component {
       <div className="home-body">
         <h1 className="header">{`/${match.params.topicid}`}</h1>
         <h2 className="sub-header"> Hot articles</h2>
-        <Articles topics={`${match.params.topicid}`} />
+        <Articles type="topic" filterBy={`${match.params.topicid}`} />
       </div>
     );
   }

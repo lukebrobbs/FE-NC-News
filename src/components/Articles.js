@@ -28,9 +28,10 @@ class Articles extends Component {
   getArticles = () => {
     api.getArticles().then(articles => {
       const sortedArticles = utils.sort(articles, "votes");
-      const filteredArticles = articlesUtil.filterByTopic(
+      const filteredArticles = articlesUtil.filterBy(
         sortedArticles,
-        this.props.topics
+        this.props.type,
+        this.props.filterBy
       );
       if (this._mounted) {
         this.setState({
