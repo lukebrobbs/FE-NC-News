@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 import api from "../utils/api";
 import sample from "lodash.sample";
+import { Button } from "react-bootstrap";
 
 class NavBar extends Component {
   state = {
@@ -12,6 +13,13 @@ class NavBar extends Component {
   componentDidMount() {
     this.setTopics();
   }
+  login = () => {
+    this.props.auth.login();
+  };
+
+  logout = () => {
+    this.props.auth.logout();
+  };
 
   setTopics = () => {
     api.getTopics().then(topics => {
@@ -30,8 +38,18 @@ class NavBar extends Component {
 
   populateNavBar = () => {
     const { topics } = this.state;
+    // const { isAuthenticated } = this.props.auth;
     return (
       <div className="Navitems">
+        <header className="App-header">
+          <Link to={"/"}>
+            <img
+              className="Logo"
+              src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png"
+              alt="Northcoders Logo"
+            />
+          </Link>
+        </header>
         <Link to={`/topics/${this.getRandomTopic().slug}`}>
           <span>Random</span>
         </Link>
@@ -42,6 +60,24 @@ class NavBar extends Component {
             </Link>
           );
         })}
+        {/* {!isAuthenticated() && (
+          <Button
+            bsStyle="primary"
+            className="btn-margin"
+            onClick={this.login.bind(this)}
+          >
+            Log In
+          </Button>
+        )}
+        {isAuthenticated() && (
+          <Button
+            bsStyle="primary"
+            className="btn-margin"
+            onClick={this.logout.bind(this)}
+          >
+            Log Out
+          </Button>
+        )} */}
       </div>
     );
   };

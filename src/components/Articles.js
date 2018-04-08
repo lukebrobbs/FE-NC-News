@@ -18,7 +18,7 @@ class Articles extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.topics !== this.props.topics) this.getArticles();
+    if (prevProps.filterBy !== this.props.filterBy) this.getArticles();
   }
 
   componentWillUnmount() {
