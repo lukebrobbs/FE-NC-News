@@ -7,12 +7,18 @@ import { Button } from "react-bootstrap";
 
 class NavBar extends Component {
   state = {
-    topics: []
+    topics: [],
+    user: {}
   };
 
   componentDidMount() {
+    const { isAuthenticated } = this.props.auth;
     this.setTopics();
+    if (isAuthenticated()) {
+      this.setUser();
+    }
   }
+
   login = () => {
     this.props.auth.login();
   };
@@ -23,10 +29,12 @@ class NavBar extends Component {
 
   setTopics = () => {
     api.getTopics().then(topics => {
-      this.setState({
-        topics
-      });
+      this.setState({ topics });
     });
+  };
+  setUser = () => {
+    const { getProfile } = this.props.auth;
+    getProfile((err, user) => this.setState({ user }));
   };
   getRandomTopic = () => {
     const location = window.location.pathname.split("/");
@@ -37,9 +45,8 @@ class NavBar extends Component {
   };
 
   populateNavBar = () => {
-    const { topics } = this.state;
+    const { topics, user } = this.state;
     const { isAuthenticated } = this.props.auth;
-    console.log(this.props.auth);
     return (
       <div className="Navitems">
         <header className="App-header">
@@ -67,9 +74,12 @@ class NavBar extends Component {
           </Button>
         )}
         {isAuthenticated() && (
-          <Button className="login-button" onClick={this.logout.bind(this)}>
-            Log Out
-          </Button>
+          <div>
+            <Button className="logout-button" onClick={this.logout.bind(this)}>
+              Log Out
+            </Button>
+            {user && <img className="user-avatar" src={user.picture} />}
+          </div>
         )}
       </div>
     );
