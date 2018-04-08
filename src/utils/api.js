@@ -28,7 +28,9 @@ const api = {
     return axios.get(`${route}/users`).then(users => users.data);
   },
   getUser: userName => {
-    return axios.get(`${route}/users/${userName}`).then(user => user.data);
+    return axios
+      .get(`${route}/users/${userName}`)
+      .then(user => user.data.user[0]);
   },
   postComment: (articleId, comment) => {
     return axios({
