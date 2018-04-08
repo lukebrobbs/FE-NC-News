@@ -12,8 +12,16 @@ class User extends Component {
     const { userid } = match.params;
     api.getUser(userid).then(user => this.setState({ user }));
   }
+  componentDidUpdate(prevProps) {
+    const { match } = this.props;
+    const { userid } = match.params;
+    if (prevProps.match.params.userid !== userid) {
+      api.getUser(userid).then(user => this.setState({ user }));
+    }
+  }
 
   render() {
+    console.log("render user");
     const { user } = this.state;
     const { match } = this.props;
     return (
