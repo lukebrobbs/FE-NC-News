@@ -6,15 +6,17 @@ import moment from "moment";
 
 class CommentSnippet extends Component {
   render() {
-    const { comment, refreshComments } = this.props;
+    const { comment, updateComments, changeVote } = this.props;
     const date = moment(comment.created_at, "x").fromNow();
     return (
       <div className="comment-snippet">
         <Voter
           id={comment._id}
           votes={comment.votes}
-          refreshComments={refreshComments}
+          article={comment}
+          updateComments={updateComments}
           type="comment"
+          changeVote={changeVote}
         />
         <div className="Comment content">
           <p>

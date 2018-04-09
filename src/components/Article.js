@@ -5,6 +5,8 @@ import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
 import "../styles/Article.css";
+import produce from "immer";
+import utils from "../utils/utils";
 
 class Article extends Component {
   state = {
@@ -14,6 +16,36 @@ class Article extends Component {
   componentDidMount() {
     this.getArticleAndComments();
   }
+  updateComments = (commentId, voteCount, by) => {
+    const stateUpdate = produce(this.state, draftState => {
+      draftState.comments = utils.sort(
+        draftState.comments.map(comment => {
+          if (comment._id === commentId) {
+            comment.votes = voteCount;
+          }
+          return comment;
+        }),
+        "votes"
+      );
+    });
+    this.setState(stateUpdate);
+    by === 1
+      ? api.incrementCommentVote(commentId)
+      : api.decrementCommentVote(commentId);
+  };
+  changeArticleVote = by => {
+    const { match } = this.props;
+    api
+      .getArticleById(match.params.articleId)
+      .then(article => {
+        return by === 1
+          ? api.incrementVote(match.params.articleId)
+          : api.decrementVote(match.params.articleId);
+      })
+      .then(article => {
+        this.setState({ article: [article.data.article] });
+      });
+  };
 
   getArticleAndComments = () => {
     const { match } = this.props;
@@ -36,14 +68,15 @@ class Article extends Component {
 
   render() {
     const { comments, article } = this.state;
+    console.log(this.state);
     return (
       <div>
         <div className="comments">
           {article.length ? (
             <ArticleSnippet
-              type="full"
-              refreshComments={this.getArticleAndComments}
               article={this.state.article[0]}
+              type2={"article"}
+              changeVote={this.changeArticleVote}
             />
           ) : null}
           <CreateComment
@@ -53,7 +86,9 @@ class Article extends Component {
           />
           {comments.length ? (
             <Comments
-              comments={this.state.comments}
+              updateComments={this.updateComments}
+              comments={comments}
+              article={article}
               refreshComments={this.getArticleAndComments}
             />
           ) : null}

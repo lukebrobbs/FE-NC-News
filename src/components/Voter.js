@@ -4,53 +4,34 @@ import api from "../utils/api";
 import PropTypes from "prop-types";
 
 class Voter extends Component {
-  state = {
-    votes: 0,
-    voted: false
-  };
-  componentDidMount() {
-    this.setState({ votes: this.props.votes });
-  }
-
-  // static getDerivedStateFromProps(nextProps, prevState) {
-  //   return { votes: prevState.votes };
-  // }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.votes !== prevProps.votes) {
-      this.setState({ votes: this.props.votes });
-    }
-  }
-
-  decreaseVotes = () => {
-    const { id, type, updateArticles, index } = this.props;
-    const { votes } = this.state;
-    updateArticles(index, votes - 1);
-    this.setState({ votes: votes - 1 });
-    type === "article" ? api.decrementVote(id) : api.decrementCommentVote(id);
-  };
-
-  increaseVotes = () => {
-    const { id, type, index, updateArticles } = this.props;
-    const { votes } = this.state;
-
-    this.setState({ votes: votes + 1 });
-    updateArticles(index, votes + 1);
-    type === "article" ? api.incrementVote(id) : api.incrementCommentVote(id);
+  updateVotes = by => {
+    const {
+      updateArticles,
+      updateComments,
+      article,
+      type,
+      type2,
+      comment,
+      changeVote
+    } = this.props;
+    const { votes, _id } = article;
+    if (type === "articles") updateArticles(_id, votes + by, by);
+    if (type === "comment") updateComments(_id, votes + by, by);
+    if (type2 === "article") changeVote(by);
   };
   render() {
-    const { votes } = this.state;
+    const { votes } = this.props.article;
     return (
       <div className="voter">
         <img
-          onClick={this.increaseVotes}
+          onClick={this.updateVotes.bind(this, 1)}
           className="arrow"
           src={require("../images/arrow-up.png")}
           alt="up vote"
         />
         <p>{votes}</p>
         <img
-          onClick={this.decreaseVotes}
+          onClick={this.updateVotes.bind(this, -1)}
           className="arrow"
           src={require("../images/arrow-down.png")}
           alt="down vote"
@@ -60,10 +41,10 @@ class Voter extends Component {
   }
 }
 
-Voter.propTypes = {
-  id: PropTypes.string.isRequired,
-  votes: PropTypes.number,
-  type: PropTypes.string
-};
+// Voter.propTypes = {
+//   id: PropTypes.string.isRequired,
+//   votes: PropTypes.number,
+//   type: PropTypes.string
+// };
 
 export default Voter;

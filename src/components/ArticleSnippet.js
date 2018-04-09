@@ -36,22 +36,22 @@ class ArticleSnippet extends Component {
   renderArticleSnippet = () => {
     const {
       article,
-      refreshComments,
       hideArticle,
+      updateArticles,
       index,
-      updateArticles
+      type,
+      type2,
+      changeVote
     } = this.props;
-    console.log(article);
     const date = moment(article.created_at, "x").fromNow();
     return (
       <div className="article-snippet">
         <Voter
-          id={article._id}
-          votes={article.votes}
-          index={index}
+          article={article}
           updateArticles={updateArticles}
-          refreshComments={refreshComments}
-          type="article"
+          type={type}
+          type2={type2}
+          changeVote={changeVote}
         />
         <div className="article-info">
           <h3>

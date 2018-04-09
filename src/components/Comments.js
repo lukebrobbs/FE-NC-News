@@ -3,16 +3,18 @@ import "../styles/Comments.css";
 import CommentSnippet from "./CommentSnippet";
 import PropTypes from "prop-types";
 
-const Comments = ({ comments, refreshComments }) => {
+const Comments = ({ comments, updateComments, article, changeVote }) => {
   return (
     <div className="comment-container">
       {comments.map((comment, i) => {
         return (
           <CommentSnippet
-            refreshComments={refreshComments}
             key={i}
             comment={comment}
+            article={article}
+            updateComments={updateComments}
             index={i}
+            changeVote={changeVote}
           />
         );
       })}

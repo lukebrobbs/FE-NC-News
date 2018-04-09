@@ -5,6 +5,7 @@ import articlesUtil from "../utils/articles";
 import utils from "../utils/utils";
 import ArticleSnippet from "./ArticleSnippet";
 import Search from "./Search";
+import produce from "immer";
 
 class Articles extends Component {
   state = {
@@ -51,16 +52,24 @@ class Articles extends Component {
     });
   };
   //bug with first and second items getting mixed up
-  changeArticleVoteAndSort = (index, voteCount) => {
-    const copy = [...this.state.articles];
-    copy[index].votes = voteCount;
-    const sortedArticles = utils.sort(copy, "votes");
-    this.setState({ articles: sortedArticles });
+  changeArticleVote = (articleId, voteCount, by) => {
+    const stateUpdate = produce(this.state, draftState => {
+      draftState.articles = utils.sort(
+        draftState.articles.map(article => {
+          if (article._id === articleId) {
+            article.votes = voteCount;
+          }
+          return article;
+        }),
+        "votes"
+      );
+    });
+    this.setState(stateUpdate);
+    by === 1 ? api.incrementVote(articleId) : api.decrementVote(articleId);
   };
 
   renderArticles = () => {
     const { articles, articlesToSearch } = this.state;
-
     return (
       <div>
         <div className="search">
@@ -72,7 +81,8 @@ class Articles extends Component {
               <ArticleSnippet
                 key={i}
                 hideArticle={this.hideArticle}
-                updateArticles={this.changeArticleVoteAndSort}
+                updateArticles={this.changeArticleVote}
+                type="articles"
                 article={article}
                 index={i}
               />
