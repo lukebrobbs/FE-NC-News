@@ -5,8 +5,16 @@ import PropTypes from "prop-types";
 
 class Voter extends Component {
   state = {
-    votes: this.props.votes
+    votes: 0,
+    voted: false
   };
+  componentDidMount() {
+    this.setState({ votes: this.props.votes });
+  }
+
+  // static getDerivedStateFromProps(nextProps, prevState) {
+  //   return { votes: prevState.votes };
+  // }
 
   componentDidUpdate(prevProps) {
     if (this.props.votes !== prevProps.votes) {
@@ -15,14 +23,19 @@ class Voter extends Component {
   }
 
   decreaseVotes = () => {
-    const { id, type } = this.props;
-    this.setState({ votes: this.state.votes - 1 });
+    const { id, type, updateArticles, index } = this.props;
+    const { votes } = this.state;
+    updateArticles(index, votes - 1);
+    this.setState({ votes: votes - 1 });
     type === "article" ? api.decrementVote(id) : api.decrementCommentVote(id);
   };
 
   increaseVotes = () => {
-    const { id, type } = this.props;
-    this.setState({ votes: this.state.votes + 1 });
+    const { id, type, index, updateArticles } = this.props;
+    const { votes } = this.state;
+
+    this.setState({ votes: votes + 1 });
+    updateArticles(index, votes + 1);
     type === "article" ? api.incrementVote(id) : api.incrementCommentVote(id);
   };
   render() {

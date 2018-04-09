@@ -12,6 +12,7 @@ const Comments = ({ comments, refreshComments }) => {
             refreshComments={refreshComments}
             key={i}
             comment={comment}
+            index={i}
           />
         );
       })}

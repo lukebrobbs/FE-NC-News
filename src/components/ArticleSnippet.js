@@ -19,19 +19,37 @@ class ArticleSnippet extends Component {
       }
     });
   }
+  componentDidUpdate(newProps) {
+    if (this.props.article._id !== newProps.article._id) {
+      api.getCommentsforArticle(this.props.article._id).then(comments => {
+        if (this._mounted) {
+          this.setState({ comments });
+        }
+      });
+    }
+  }
 
   componentWillUnmount() {
     this._mounted = false;
   }
 
   renderArticleSnippet = () => {
-    const { article, refreshComments, hideArticle, index } = this.props;
+    const {
+      article,
+      refreshComments,
+      hideArticle,
+      index,
+      updateArticles
+    } = this.props;
+    console.log(article);
     const date = moment(article.created_at, "x").fromNow();
     return (
       <div className="article-snippet">
         <Voter
           id={article._id}
           votes={article.votes}
+          index={index}
+          updateArticles={updateArticles}
           refreshComments={refreshComments}
           type="article"
         />

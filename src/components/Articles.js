@@ -45,12 +45,22 @@ class Articles extends Component {
   hideArticle = index => {
     const newState = [...this.state.articles];
     newState.splice(index, 1);
+
     this.setState({
       articles: newState
     });
   };
+  //bug with first and second items getting mixed up
+  changeArticleVoteAndSort = (index, voteCount) => {
+    const copy = [...this.state.articles];
+    copy[index].votes = voteCount;
+    const sortedArticles = utils.sort(copy, "votes");
+    this.setState({ articles: sortedArticles });
+  };
+
   renderArticles = () => {
     const { articles, articlesToSearch } = this.state;
+
     return (
       <div>
         <div className="search">
@@ -62,6 +72,7 @@ class Articles extends Component {
               <ArticleSnippet
                 key={i}
                 hideArticle={this.hideArticle}
+                updateArticles={this.changeArticleVoteAndSort}
                 article={article}
                 index={i}
               />
