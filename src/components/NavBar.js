@@ -19,6 +19,15 @@ class NavBar extends Component {
     }
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    const { getProfile } = this.props.auth;
+    const { user } = this.state;
+    const { isAuthenticated } = this.props.auth;
+    if (isAuthenticated() && !user.sub) {
+      this.setUser();
+    }
+  }
+
   login = () => {
     this.props.auth.login();
   };

@@ -5,7 +5,6 @@ import commentsUtil from "../utils/comments";
 import CreateComment from "./CreateComment";
 import Comments from "./Comments";
 import "../styles/Article.css";
-import NavBar from "./NavBar";
 
 class Article extends Component {
   state = {
@@ -39,7 +38,6 @@ class Article extends Component {
     const { comments, article } = this.state;
     return (
       <div>
-        <NavBar auth={this.props.auth} />
         <div className="comments">
           {article.length ? (
             <ArticleSnippet

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../styles/User.css";
 import api from "../utils/api";
 import Articles from "./Articles";
-import NavBar from "./NavBar";
 
 class User extends Component {
   state = {
@@ -27,7 +26,6 @@ class User extends Component {
     const { match } = this.props;
     return (
       <div>
-        <NavBar auth={this.props.auth} />
         <div className="user">
           <div className="profile">
             <img
