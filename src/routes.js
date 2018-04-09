@@ -22,6 +22,7 @@ export const makeMainRoutes = () => {
   return (
     <Router history={history} component={NavBar}>
       <div className="app">
+        <NavBar auth={auth} />
         <Route
           exact
           path="/"
