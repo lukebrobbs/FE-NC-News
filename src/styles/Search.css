@@ -36,3 +36,6 @@
   visibility: hidden;
   z-index: 0;
 }
+.search-params {
+  text-align: center;
+}
