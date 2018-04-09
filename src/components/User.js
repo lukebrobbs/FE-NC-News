@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/User.css";
 import api from "../utils/api";
 import Articles from "./Articles";
+import moment from "moment";
 
 class User extends Component {
   state = {
@@ -34,6 +35,10 @@ class User extends Component {
               alt="User avatar"
             />
             <h1 className="username">{`/${user.username}` || null}</h1>
+            <p className="joined-on">
+              {`Joined ${moment(user.joined_on).format("MMMM Do YYYY")}` ||
+                null}
+            </p>
           </div>
           <Articles type="user" filterBy={match.params.userid} />
         </div>

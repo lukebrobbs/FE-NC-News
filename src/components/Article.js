@@ -75,6 +75,7 @@ class Article extends Component {
           {article.length ? (
             <ArticleSnippet
               article={this.state.article[0]}
+              type={"full"}
               type2={"article"}
               changeVote={this.changeArticleVote}
             />

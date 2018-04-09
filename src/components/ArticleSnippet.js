@@ -57,7 +57,7 @@ class ArticleSnippet extends Component {
           <h3>
             <Link to={`/articles/${article._id}`}>{article.title}</Link>
           </h3>
-          <p>
+          <p className="submitted-by">
             submitted by
             <Link to={`/users/${article.created_by._id}`}>{` ${
               article.created_by.username
