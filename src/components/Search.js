@@ -35,7 +35,15 @@ class Search extends Component {
           value={search}
           onChange={this.handleChange}
         />
-        {results.length ? <this.renderArticles /> : null}
+        {results.length ? (
+          <this.renderArticles />
+        ) : (
+          <div className="search-params">
+            <p>Search Articles</p>
+            <p>Search Users</p>
+            <p>Search Topics</p>
+          </div>
+        )}
       </div>
     );
   }
