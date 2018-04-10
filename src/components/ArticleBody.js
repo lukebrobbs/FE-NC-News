@@ -1,16 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
 import "../styles/ArticleBody.css";
+import PropTypes from "prop-types";
 
-//Will render an individual article, depending on the match.params.id
+const ArticleBody = ({ body }) => {
+  return (
+    <div className="article">
+      <p>{body}</p>
+    </div>
+  );
+};
 
-class ArticleBody extends Component {
-  render() {
-    return (
-      <div className="article">
-        <p>{this.props.body}</p>
-      </div>
-    );
-  }
-}
+ArticleBody.propTypes = {
+  body: PropTypes.string
+};
 
 export default ArticleBody;

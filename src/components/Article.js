@@ -7,6 +7,7 @@ import Comments from "./Comments";
 import "../styles/Article.css";
 import produce from "immer";
 import utils from "../utils/utils";
+import PropTypes from "prop-types";
 
 class Article extends Component {
   state = {
@@ -88,8 +89,6 @@ class Article extends Component {
             <Comments
               updateComments={this.updateComments}
               comments={comments}
-              article={article}
-              refreshComments={this.getArticleAndComments}
             />
           ) : null}
         </div>
@@ -97,5 +96,12 @@ class Article extends Component {
     );
   }
 }
+
+Article.propTypes = {
+  auth: PropTypes.object,
+  match: PropTypes.object,
+  location: PropTypes.object,
+  history: PropTypes.object
+};
 
 export default Article;

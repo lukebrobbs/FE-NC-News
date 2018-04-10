@@ -6,6 +6,7 @@ import utils from "../utils/utils";
 import ArticleSnippet from "./ArticleSnippet";
 import Search from "./Search";
 import produce from "immer";
+import PropTypes from "prop-types";
 
 class Articles extends Component {
   state = {
@@ -51,7 +52,7 @@ class Articles extends Component {
       articles: newState
     });
   };
-  //bug with first and second items getting mixed up
+
   changeArticleVote = (articleId, voteCount, by) => {
     const stateUpdate = produce(this.state, draftState => {
       draftState.articles = utils.sort(
@@ -100,5 +101,10 @@ class Articles extends Component {
     );
   }
 }
+
+Articles.propTypes = {
+  type: PropTypes.string,
+  filterBy: PropTypes.string
+};
 
 export default Articles;

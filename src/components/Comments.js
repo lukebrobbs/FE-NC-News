@@ -11,9 +11,7 @@ const Comments = ({ comments, updateComments, article, changeVote }) => {
           <CommentSnippet
             key={i}
             comment={comment}
-            article={article}
             updateComments={updateComments}
-            index={i}
             changeVote={changeVote}
           />
         );
@@ -23,7 +21,8 @@ const Comments = ({ comments, updateComments, article, changeVote }) => {
 };
 
 Comments.propTypes = {
-  comments: PropTypes.array.isRequired
+  comments: PropTypes.array.isRequired,
+  updateComments: PropTypes.func
 };
 
 export default Comments;

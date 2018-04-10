@@ -39,10 +39,13 @@ class Voter extends Component {
   }
 }
 
-// Voter.propTypes = {
-//   id: PropTypes.string.isRequired,
-//   votes: PropTypes.number,
-//   type: PropTypes.string
-// };
+Voter.propTypes = {
+  article: PropTypes.object.isRequired,
+  updateComments: PropTypes.func,
+  updateArticles: PropTypes.func,
+  changeVote: PropTypes.func,
+  type: PropTypes.string.isRequired,
+  type2: PropTypes.string
+};
 
 export default Voter;
