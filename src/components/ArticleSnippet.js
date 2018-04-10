@@ -97,6 +97,8 @@ ArticleSnippet.propTypes = {
   article: PropTypes.object.isRequired,
   index: PropTypes.number,
   hideArticle: PropTypes.func,
-  type: PropTypes.string
+  type: PropTypes.string,
+  type2: PropTypes.string,
+  changeVote: PropTypes.func
 };
 export default ArticleSnippet;

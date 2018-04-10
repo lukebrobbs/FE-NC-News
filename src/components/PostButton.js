@@ -1,14 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import "../styles/PostButton.css";
+import PropTypes from "prop-types";
 
-class PostButton extends Component {
-  render() {
-    return (
-      <button className="post-button" onClick={this.props.postComment}>
-        Post
-      </button>
-    );
-  }
-}
+const PostButton = ({ postComment }) => {
+  return (
+    <button className="post-button" onClick={postComment}>
+      Post
+    </button>
+  );
+};
 
+PostButton.propTypes = {
+  postComment: PropTypes.func
+};
 export default PostButton;

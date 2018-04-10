@@ -20,7 +20,6 @@ class NavBar extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    const { getProfile } = this.props.auth;
     const { user } = this.state;
     const { isAuthenticated } = this.props.auth;
     if (isAuthenticated() && !user.sub) {
@@ -87,7 +86,13 @@ class NavBar extends Component {
             <Button className="logout-button" onClick={this.logout.bind(this)}>
               Log Out
             </Button>
-            {user && <img className="user-avatar" src={user.picture} />}
+            {user && (
+              <img
+                className="user-avatar"
+                src={user.picture}
+                alt="User-Avatar"
+              />
+            )}
           </div>
         )}
       </div>

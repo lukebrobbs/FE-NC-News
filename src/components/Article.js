@@ -68,7 +68,6 @@ class Article extends Component {
 
   render() {
     const { comments, article } = this.state;
-    console.log(this.state);
     return (
       <div>
         <div className="comments">

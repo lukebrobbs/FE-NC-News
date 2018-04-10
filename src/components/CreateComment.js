@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles/CreateComment.css";
 import PostButton from "./PostButton";
 import api from "../utils/api";
+import PropTypes from "prop-types";
 
 class CreateComment extends Component {
   state = {
@@ -44,5 +45,11 @@ class CreateComment extends Component {
     );
   }
 }
+
+CreateComment.propTypes = {
+  auth: PropTypes.object.isRequired,
+  refreshComments: PropTypes.func,
+  articleId: PropTypes.string
+};
 
 export default CreateComment;

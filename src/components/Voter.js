@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "../styles/Voter.css";
-import api from "../utils/api";
 import PropTypes from "prop-types";
 
 class Voter extends Component {
@@ -11,7 +10,6 @@ class Voter extends Component {
       article,
       type,
       type2,
-      comment,
       changeVote
     } = this.props;
     const { votes, _id } = article;
