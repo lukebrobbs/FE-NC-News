@@ -3,6 +3,9 @@ import "../styles/Voter.css";
 import PropTypes from "prop-types";
 
 class Voter extends Component {
+  state = {
+    voted: false
+  };
   updateVotes = by => {
     const {
       updateArticles,
@@ -13,9 +16,13 @@ class Voter extends Component {
       changeVote
     } = this.props;
     const { votes, _id } = article;
-    if (type === "articles") updateArticles(_id, votes + by, by);
-    if (type === "comment") updateComments(_id, votes + by, by);
-    if (type2 === "article") changeVote(by);
+    if (this.state.voted) return;
+    else {
+      if (type === "articles") updateArticles(_id, votes + by, by);
+      if (type === "comment") updateComments(_id, votes + by, by);
+      if (type2 === "article") changeVote(by);
+      this.setState({ voted: !this.state.voted });
+    }
   };
   render() {
     const { votes } = this.props.article;
