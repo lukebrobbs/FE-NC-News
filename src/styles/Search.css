@@ -1,16 +1,12 @@
 .search-area {
-  width: 310px;
   min-height: 500px;
+  width: 250px;
   position: absolute;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  left: 74vw;
-  top: 34%;
-  padding-right: 10px;
-  background-color: white;
+  left: 75vw;
+  top: 33%;
 }
 .search-area textarea {
   width: 250px;
-  margin-left: 10%;
   border: none;
   margin-bottom: 20px;
   text-align: center;
@@ -22,18 +18,18 @@
   border-radius: 10px;
 }
 .search-area .article-snippet {
+  display: block;
   border-bottom: 1px solid rgba(0, 0, 0, 0.137);
   background-color: white;
-  width: 300px;
-  margin-top: 0;
-  margin-left: 0px;
-  padding-right: 20px;
-  margin-bottom: 0px;
+  width: 250px;
+  margin: 0;
+  padding-top: 5px;
+  text-align: center;
+
   z-index: 1;
 }
 .search-area .voter {
-  margin-right: 30px;
-  visibility: hidden;
+  display: none;
   z-index: 0;
 }
 .search-params {

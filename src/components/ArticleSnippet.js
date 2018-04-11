@@ -85,11 +85,7 @@ class ArticleSnippet extends Component {
   };
 
   render() {
-    return (
-      <div>
-        <this.renderArticleSnippet />
-      </div>
-    );
+    return <this.renderArticleSnippet />;
   }
 }
 
