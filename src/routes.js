@@ -18,7 +18,7 @@ const handleAuthentication = ({ location }) => {
   }
 };
 
-export const makeMainRoutes = () => {
+export const MakeMainRoutes = () => {
   return (
     <Router history={history} component={NavBar}>
       <div className="app">
