@@ -22,7 +22,6 @@ class User extends Component {
   }
 
   render() {
-    console.log("render user");
     const { user } = this.state;
     const { match } = this.props;
     return (
